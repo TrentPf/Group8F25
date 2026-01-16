@@ -15,6 +15,14 @@
 - **Data Layer:** Uses `@supabase/supabase-js` to read/write `users`, `trips`, and `driving_scores` in Supabase. The model/DB helper code is in `drivetracker/models` and `drivetracker/database`.
 - **Scripts / Tools:** Quick diagnostic script at `drivetracker/scripts/check_supabase.js` checks environment variables and queries the demo user.
 
+**Data & Analytics Overview**
+
+**DriveTracker** implements an end-to-end data pipeline:
+- Captures GPS telemetry from mobile devices
+- Persists structured trip and driving score data in Supabase (SQL)
+- Computes KPI-style performance scores from raw sensor data
+- Enables historical trend analysis via trip summaries and visualizations
+
 **Repository Layout**
 
 - **`drivetracker/app`**: Router and top-level screens (`index.jsx`, `history.jsx`, `track.jsx`).
@@ -107,4 +115,5 @@ npm run test:unit
 - Keep secrets out of git: add `drivetracker/.env` to `.gitignore` if you add any credentials locally.
 - If you change the Supabase schema, update `drivetracker/models/supabaseModel.js` and `drivetracker/database/demo_seed.sql` accordingly.
 - For UI changes, follow existing component conventions in `drivetracker/components`.
+
 
